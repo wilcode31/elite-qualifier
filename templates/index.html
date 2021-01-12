@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Movie Catalog</title>
+</head>
+
+<body>
+	<div>
+
+		<form action="/search" method="post">
+			<div>
+				<label for="movie-title-search">Movie Title</label>
+        <input type="text" name="movie-title-search" id="movie-title-search" required>
+        <input type="submit" value="Search" class="btn btn-primary">
+      </div>
+    </form>
+
+    {% if output_error %}
+    <p>{{ output_error }}</p>
+    {% endif %}
+
+    {% if search_list %}
+    <div>
+      <form action="/display" method="post">
+        <div>
+            <br>
+            <label for="movies">Choose the Movie:</label>
+            <select name="selected-movie" id="movies">
+              {% for i in range(search_list|length) %}
+              <option value="{{ i }}">{{ search_list[i] }}</option>
+              {% endfor %}
+            </select>
+            <br>
+            <input type="radio" name="parameter" id="seen" value="seen" required>
+            <label for="seen">I've seen this movie</label><br>
+            <input type="radio" name="parameter" id="watchlist" value="watchlist" required>
+            <label for="watchlist">I want to see this movie</label>
+            <br><br>
+            <input type="submit" value="Update" class="btn btn-primary">
+        </div>
+      </form>
+    </div>
+    {% endif %}
+	<div>
+		<form action="/sort" meathod = "post">
+			<div>
+				<label for="sort">Sort By:</label>
+				<select name="sort" id="sort">
+					<option value = "" selected disabled hidden>Choose Here</option>
+					<option value = "A-Z">Name: A-Z</option>
+					<option value = "Z-A">Name: Z-A</option>
+					<option value = "high to low">Rating: High to Low</option>
+					<option value = "low to high">Rating: Low to High</option>
+				<input type="submit" value="Update">
+			</div>
+
+	</div>
+	<div class="row">
+    	<div class="col-sm-6">
+			<h2>Movies You've Seen</h2>
+			{% if seen_movies %}
+			<table style="width:100%">
+				<tr>
+				<th>Movie</th>
+				<th>Rating</th>
+				<th>Description</th>
+				</tr>
+				{% for movie in seen_movies %}
+				<tr>
+				<td>{{ movie["title"] }}</td>
+				<td>{{ movie["rating"] }}</td>
+				<td>{{ movie["description"] }}</td>
+				</tr>
+				{% endfor %}    
+			</table>
+			{% else %}
+			<p>No data yet. Add some movies!</p>
+			{% endif %}
+			</div>
+
+			<div>
+			<h2>Movies You Want to See</h2>
+				{% if watchlist_movies %}
+				<table style="width:100%">
+				<tr>
+					<th>Movie</th>
+					<th>Rating</th>
+					<th>Description</th>
+				</tr>
+				{% for movie in watchlist_movies %}
+				<tr>
+					<td>{{ movie["title"] }}</td>
+					<td>{{ movie["rating"] }}</td>
+					<td>{{ movie["description"] }}</td>
+				</tr>
+				{% endfor %}    
+				</table>
+				{% else %}
+				<p>No data yet. Add some movies!</p>
+				{% endif %}
+    </div>
+
+  </div>
+</body>
+</html>
