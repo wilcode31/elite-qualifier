@@ -1,6 +1,6 @@
-# Title
+# Which Movie!?
 
-Simple (or clever and funny?) description
+You get to search and list any movies you have seen or want to see.
 
 ## Table of Contents
 
@@ -16,10 +16,10 @@ This is why this application exists.
 
 ## Install
 
-These are the steps to setup your local environment to run this application.
+This application was made using HTML and Python 3.8 programming.
 
 ## Usage
 
-These are the steps to use the application or interact with it.
+You write on the Movie Title bar the movie you wish to search. After you press Search. Then select which movie out of the drop down menu and either you want to or already saw it. You can also sort out your list alphabetically or by rating.
 
 ### Any optional sections
