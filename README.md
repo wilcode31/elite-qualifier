@@ -12,7 +12,7 @@ You get to search and list any movies you have seen or want to see.
 
 ## Background
 
-This is why this application exists.
+This application is used to sort out the movies you have and haven't seen.
 
 ## Install
 
