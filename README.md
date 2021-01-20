@@ -24,11 +24,11 @@ You write on the Movie Title bar the movie you wish to search. After you press S
 
 ### Any optional sections
 
-## Test Plan
+## Test Plan - megan's conflict
 
 To test the project:
 
 1. Run the test
 2. Check the results
 
-4th line added
+
