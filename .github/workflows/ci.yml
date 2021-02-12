@@ -41,8 +41,8 @@ jobs:
       - name: Run poetry install
         run: poetry install
       
-      - name: Test with pytest
-        run: poetry run pytest
+      - name: Test
+        run: poetry run python test.py
 
       # - name: Run tests
       #   run: python test.py
