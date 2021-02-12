@@ -41,6 +41,9 @@ jobs:
       - name: Run poetry install
         run: poetry install
       
+      - name: Update poetry lock
+        run: poetry update
+      
       - name: Test
         run: poetry run python test.py
 
