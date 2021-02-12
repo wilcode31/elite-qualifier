@@ -1,8 +1,13 @@
 import unittest
-from main import display
-class TestIsOdd(unittest.TestCase):
+from main import get_output_error
 
-    def test_display(self):
-        self.assertTrue(True)
+class MainTests(unittest.TestCase):
+
+    def test_get_output_error(self):
+        seen_movies = [{'title': 'abc-123'}]
+        watchlist_movies = [{'title': 'abc-123'}]
+        result = get_output_error('abc-123', seen_movies, watchlist_movies)
+        self.assertEqual('Movie already exists in data.', result)
+
 if __name__ == '__main__':
     unittest.main()
