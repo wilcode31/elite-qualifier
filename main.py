@@ -13,6 +13,12 @@ search_list = []
 seen_movies = []
 watchlist_movies = []
 
+def get_output_error(title, seen_movies, watchlist_movies):
+    if any(movie['title'] == title for movie in seen_movies) or any(movie['title'] == title for movie in watchlist_movies):
+        return 'Movie already exists in data.'
+    else:
+        return ''
+
 
 @app.route('/', methods=['GET'])
 def index():
@@ -90,11 +96,5 @@ def display():
     return redirect('/')
 
 
-app.run(host='0.0.0.0', port=8080)
-
-
-def get_output_error(title, seen_movies, watchlist_movies):
-    if any(movie['title'] == title for movie in seen_movies) or any(movie['title'] == title for movie in watchlist_movies):
-        return 'Movie already exists in data.'
-    else:
-        return ''
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8080)
