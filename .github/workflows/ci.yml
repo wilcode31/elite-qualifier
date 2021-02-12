@@ -37,12 +37,12 @@ jobs:
       - name: Configure poetry
         shell: bash
         run: python -m poetry config virtualenvs.in-project true
-
-      - name: Run poetry install
-        run: poetry install
       
       - name: Update poetry lock
         run: poetry update
+
+      - name: Run poetry install
+        run: poetry install
       
       - name: Test
         run: poetry run python test.py
